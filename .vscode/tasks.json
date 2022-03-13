@@ -1,0 +1,45 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+            "label": "bulid",
+            "command": "make",
+            "args": [
+                "-C",
+                "${fileDirname}"
+            ],
+            "type": "shell",
+        },
+        {
+            "label": "clean",
+            "command": "make",
+            "args": [
+                "clean",
+                "-C",
+                "${fileDirname}"
+            ],
+            "type": "shell",
+        },
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ 生成活动文件",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				//"${file}",
+				"${fileDirname}/*.cpp",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "编译器: /usr/bin/g++"
+		}
+	]
+}
